@@ -1,0 +1,53 @@
+kind: job
+metadata:
+  name: create-streams-tables
+  tag: ''
+  hash: bddbb206f1847d3bdc88cbc83670b9bdd5deb945
+  project: facial-recognition-demo
+spec:
+  command: ''
+  args: []
+  env:
+  - name: RAW_VIDEO_STREAM
+    value: facial-recognition-demo/videostream
+  - name: TAGGED_VIDEO_STREAM
+    value: facial-recognition-demo/taggedvideos
+  - name: IGZ_CONTAINER
+    value: bigdata
+  - name: CAMERA_LIST_TBL
+    value: facial-recognition-demo/camera_list
+  - name: CAMERA_ID
+    value: '0'
+  - name: SHARD_ID
+    value: '0'
+  - name: CAMERA_URL
+    value: http://192.168.0.103:8080
+  default_handler: handler
+  entry_points:
+    init_functions:
+      name: init_functions
+      doc: ''
+      parameters:
+      - name: functions
+        type: dict
+        default: ''
+      - name: project
+        default: null
+      - name: secrets
+        default: null
+      outputs:
+      - default: ''
+      lineno: 29
+    kfpipeline:
+      name: kfpipeline
+      doc: ''
+      parameters: []
+      outputs:
+      - default: ''
+      lineno: 33
+  description: ''
+  build:
+    functionSourceCode: IyBHZW5lcmF0ZWQgYnkgbnVjbGlvLmV4cG9ydC5OdWNsaW9FeHBvcnRlcgoKaW1wb3J0IG9zCmZyb20gb3MgaW1wb3J0IHBhdGgsIGdldGVudgppbXBvcnQgbnVjbGlvCmZyb20gbWxydW4gaW1wb3J0IG5ld19wcm9qZWN0LCBydW5fbG9jYWwsIE5ld1Rhc2ssIG1sY29uZiwgaW1wb3J0X2Z1bmN0aW9uLCBtb3VudF92M2lvCgpwcm9qZWN0X25hbWUgPSBvcy5nZXRlbnYoIlBST0pFQ1QiKQpwcm9qZWN0X3BhdGggPSBwYXRoLmFic3BhdGgoJ3Byb2plY3QnKQpwcm9qZWN0ID0gbmV3X3Byb2plY3QobmFtZT1wcm9qZWN0X25hbWUsIGNvbnRleHQ9cHJvamVjdF9wYXRoKQphcnRpZmFjdF9wYXRoID0gcGF0aC5hYnNwYXRoKCdhcnRpZmFjdHMnKQptbGNvbmYuZGJwYXRoID0gbWxjb25mLmRicGF0aCBvciAnaHR0cDovL21scnVuLWFwaTo4MDgwJwoKcHJpbnQoZidQcm9qZWN0IHBhdGg6IHtwcm9qZWN0X3BhdGh9XG5Qcm9qZWN0IG5hbWU6IHtwcm9qZWN0X25hbWV9JykKcHJpbnQoZidBcnRpZmFjdHMgcGF0aDoge2FydGlmYWN0X3BhdGh9XG5NTFJ1biBEQiBwYXRoOiB7bWxjb25mLmRicGF0aH0nKQoKcHJvamVjdC5zZXRfZnVuY3Rpb24oJy4uL2NvbXBvbmVudHMveWFtbC9jcmVhdGUtc3RyZWFtcy10YWJsZXMueWFtbCcsICdjcmVhdGUtc3RyZWFtcy10YWJsZXMnKQpwcm9qZWN0LnNldF9mdW5jdGlvbignLi4vY29tcG9uZW50cy95YW1sL2RlcGxveS1mYWNpYWwtcmVjb2duaXRpb24ueWFtbCcsICdkZXBsb3ktZmFjaWFsLXJlY29nbml0aW9uJykKCnByb2plY3QuZnVuY3Rpb25zCgoKaW1wb3J0IG9zCmZyb20ga2ZwIGltcG9ydCBkc2wKZnJvbSBtbHJ1biBpbXBvcnQgbW91bnRfdjNpbwoKZnVuY3MgPSB7fQoKZGVmIGluaXRfZnVuY3Rpb25zKGZ1bmN0aW9uczogZGljdCwgcHJvamVjdD1Ob25lLCBzZWNyZXRzPU5vbmUpOgogICAgZm9yIGYgaW4gZnVuY3Rpb25zLnZhbHVlcygpOgogICAgICAgIGYuYXBwbHkobW91bnRfdjNpbygpKQoKQGRzbC5waXBlbGluZSgKICAgIG5hbWU9IkZhY2lhbCBSZWNvZ25pdGlvbiBEZW1vIiwKICAgIGRlc2NyaXB0aW9uPSJSZWFsLXRpbWUgZmFjaWFsIHJlY29nbml0aW9uIHVzaW5nIElndWF6aW8gRGF0YSBTY2llbmNlIFBsYXRmb3JtLCBOdWNsaW8sIGFuZCBNTFJ1biIKKQpkZWYga2ZwaXBlbGluZSgpOgogICAgCgogICAgc2V0dXAgPSBmdW5jc1snY3JlYXRlLXN0cmVhbXMtdGFibGVzJ10uYXNfc3RlcChvdXRwdXRzPVsncmF3X3ZpZGVvX3N0cmVhbV91cmwnLCAndGFnZ2VkX3ZpZGVvX3N0cmVhbV91cmwnXSkKICAgIAogICAgZGVwbG95ID0gZnVuY3NbJ2RlcGxveS1mYWNpYWwtcmVjb2duaXRpb24nXS5kZXBsb3lfc3RlcChlbnY9eydUQUdHRURfVklERU9fU1RSRUFNX1VSTCcgOiBzZXR1cC5vdXRwdXRzWyd0YWdnZWRfdmlkZW9fc3RyZWFtX3VybCddfSkKCiAgICAKICAgIAogICAgCiAgICAKICAgIAogICAgCiAgICAKICAgIAogICAgCgpwcm9qZWN0LnNldF93b3JrZmxvdygnbWFpbicsICd3b3JrZmxvdy5weScpCgpwcm9qZWN0LnNhdmUoKQoKcnVuX2lkID0gcHJvamVjdC5ydW4oCiAgICAnbWFpbicsCiAgICBhcmd1bWVudHM9e30sIAogICAgYXJ0aWZhY3RfcGF0aD1wYXRoLmFic3BhdGgocGF0aC5qb2luKCdwaXBlbGluZScsJ3t7d29ya2Zsb3cudWlkfX0nKSksIAogICAgZGlydHk9VHJ1ZSkKCmZyb20gbWxydW4gaW1wb3J0IGdldF9ydW5fZGIKZGIgPSBnZXRfcnVuX2RiKCkuY29ubmVjdCgpCmRiLmxpc3RfcnVucyhwcm9qZWN0PXByb2plY3QubmFtZSwgbGFiZWxzPWYnd29ya2Zsb3c9e3J1bl9pZH0nKS5zaG93KCkKCg==
+    image: docker-registry.default-tenant.app.nicks-dev-cluster.iguazio-cd2.com:80/facial-recognition-demo-image
+    commands: []
+    code_origin: https://github.com/nschenone/iguazioCV.git#afdc8514848f89e410978de058897e674e124784:create-streams-tables.ipynb

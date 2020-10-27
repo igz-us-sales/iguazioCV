@@ -1,0 +1,11 @@
+name: facial-recognition-demo
+functions:
+- url: ../components/yaml/create-streams-tables.yaml
+  name: create-streams-tables
+- url: ../components/yaml/deploy-facial-recognition.yaml
+  name: deploy-facial-recognition
+workflows:
+- name: main
+  path: workflow.py
+artifacts: []
+artifact_path: ''
