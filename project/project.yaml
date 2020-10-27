@@ -4,6 +4,12 @@ functions:
   name: create-streams-tables
 - url: ../components/yaml/deploy-facial-recognition.yaml
   name: deploy-facial-recognition
+- url: ../components/yaml/deploy-image-retrieval.yaml
+  name: deploy-image-retrieval
+- url: ../components/yaml/create-api-gateway.yaml
+  name: create-api-gateway
+- url: ../components/yaml/create-grafana-dashboard.yaml
+  name: create-grafana-dashboard
 workflows:
 - name: main
   path: workflow.py

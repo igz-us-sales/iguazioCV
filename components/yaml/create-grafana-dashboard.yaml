@@ -1,0 +1,43 @@
+kind: job
+metadata:
+  name: create-grafana-dashboard
+  tag: ''
+  hash: 30db258c2dc68a65e4574f669cc8c8d3473b27cc
+  project: facial-recognition-demo
+spec:
+  command: ''
+  args: []
+  env:
+  - name: API_GATEWAY
+    value: camera-img
+  - name: PROJECT
+    value: facial-recognition-demo
+  - name: IGZ_NAMESPACE_DOMAIN
+    value: default-tenant.app.nicks-dev-cluster.iguazio-cd2.com
+  - name: RAW_VIDEO_STREAM
+    value: videostream
+  - name: TAGGED_VIDEO_STREAM
+    value: taggedvideos
+  - name: IGZ_CONTAINER
+    value: bigdata
+  - name: shardId
+    value: None
+  default_handler: handler
+  entry_points:
+    handler:
+      name: handler
+      doc: ''
+      parameters:
+      - name: context
+        default: ''
+      - name: event
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 7
+  description: ''
+  build:
+    functionSourceCode: IyBHZW5lcmF0ZWQgYnkgbnVjbGlvLmV4cG9ydC5OdWNsaW9FeHBvcnRlcgoKZnJvbSBncmFmd2l6IGltcG9ydCAqCmltcG9ydCBvcwppbXBvcnQgdjNpb19mcmFtZXMgYXMgdjNmCgpkZWYgaGFuZGxlcihjb250ZXh0LCBldmVudCk6CiAgICAKICAgIHJhd19zdHJlYW1fdXJsID0gZiJodHRwczovL3tvcy5nZXRlbnYoJ0FQSV9HQVRFV0FZJyl9LXtvcy5nZXRlbnYoJ1BST0pFQ1QnKX0ue29zLmdldGVudignSUdaX05BTUVTUEFDRV9ET01BSU4nKX0vP3NoYXJkSWQ9e29zLmdldGVudignc2hhcmRJZCcpfSZjb250YWluZXI9e29zLmdldGVudignSUdaX0NPTlRBSU5FUicpfSZzdHJlYW09e29zLmdldGVudignUkFXX1ZJREVPX1NUUkVBTScpfSIKICAgIHRhZ2dlZF9zdHJlYW1fdXJsID0gZiJodHRwczovL3tvcy5nZXRlbnYoJ0FQSV9HQVRFV0FZJyl9LXtvcy5nZXRlbnYoJ1BST0pFQ1QnKX0ue29zLmdldGVudignSUdaX05BTUVTUEFDRV9ET01BSU4nKX0vP3NoYXJkSWQ9e29zLmdldGVudignc2hhcmRJZCcpfSZjb250YWluZXI9e29zLmdldGVudignSUdaX0NPTlRBSU5FUicpfSZzdHJlYW09e29zLmdldGVudignVEFHR0VEX1ZJREVPX1NUUkVBTScpfSIKICAgIAogICAgcGFyYW1zX2pzID0gIiIiewogICAgICAgICBmcm9tOmN0cmwucmFuZ2UuZnJvbS5mb3JtYXQoJ3gnKSwgIC8vIHggaXMgdW5peCBtcyB0aW1lc3RhbXAKICAgICAgICAgdG86Y3RybC5yYW5nZS50by5mb3JtYXQoJ3gnKSwgCiAgICAgICAgIGhlaWdodDpjdHJsLmhlaWdodCwKICAgICAgICAgbm93OkRhdGUubm93KCksCiAgICAgICAgIGludGVydmFsOiBjdHJsLnRlbXBsYXRlKCckX19pbnRlcnZhbCcpLAogICAgICAgICBzYW1wbGU6ICdOb3QgZXNjYXBlZDogJF9faW50ZXJ2YWwnLAogICAgICAgICBzaW5jZTpjdHJsLmxhc3RSZXF1ZXN0VGltZQogICAgICAgIH0iIiIKICAgIAogICAgZGFzaCA9IERhc2hib2FyZCgiU3RyZWFtIFZpZXdlciBUZXN0Iiwgc3RhcnQ9J25vdycsIGRhdGFTb3VyY2U9J2lndWF6aW8nLCByZWZyZXNoPScxcycpCiAgICAKICAgIHJhd19zdHJlYW0gPSBBamF4KHRpdGxlPSdSYXcgU3RyZWFtJywKICAgICAgICAgICAgICAgICAgICAgIHVybD1yYXdfc3RyZWFtX3VybCwKICAgICAgICAgICAgICAgICAgICAgIG1ldGhvZD0iaWZyYW1lIiwKICAgICAgICAgICAgICAgICAgICAgIHBhcmFtc19qcz1wYXJhbXNfanMpCiAgICAKICAgIHRhZ2dlZF9zdHJlYW0gPSBBamF4KHRpdGxlPSdUYWdnZWQgU3RyZWFtJywKICAgICAgICAgICAgICAgICAgICAgIHVybD10YWdnZWRfc3RyZWFtX3VybCwKICAgICAgICAgICAgICAgICAgICAgIG1ldGhvZD0iaWZyYW1lIiwKICAgICAgICAgICAgICAgICAgICAgIHBhcmFtc19qcz1wYXJhbXNfanMpCiAgICAKICAgIGRhc2gucm93KFtyYXdfc3RyZWFtLCB0YWdnZWRfc3RyZWFtXSkKICAgIAogICAgcmV0dXJuIGRhc2guZGVwbG95KCdodHRwOi8vZ3JhZmFuYScpCgo=
+    image: docker-registry.default-tenant.app.nicks-dev-cluster.iguazio-cd2.com:80/facial-recognition-demo-image
+    commands: []
+    code_origin: https://github.com/nschenone/iguazioCV.git#19f5b38e8e66387d75dcfcbd50a7a19c2271419e:create-grafana-dashboard.ipynb

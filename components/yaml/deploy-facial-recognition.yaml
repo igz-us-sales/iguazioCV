@@ -2,7 +2,7 @@ kind: remote
 metadata:
   name: deploy-facial-recognition
   tag: ''
-  hash: faa0773c31335815922b3d9ff8be5c49c1aaa782
+  hash: 8e7d58a158ec7c055eca1b3763908d357d9e50f8
   project: facial-recognition-demo
 spec:
   command: ''
@@ -37,10 +37,6 @@ spec:
   min_replicas: 1
   max_replicas: 1
   env:
-  - name: V3IO_API
-    value: ''
-  - name: V3IO_USERNAME
-    value: ''
   - name: V3IO_ACCESS_KEY
     value: ''
   - name: IGZ_CONTAINER
@@ -56,7 +52,7 @@ spec:
       annotations: {}
     spec.triggers.image-proc:
       kind: v3ioStream
-      url: http://v3io-webapi:8081/bigdata/facial-recognition-demo/videostream@processorgrp
+      url: http://v3io-webapi:8081/bigdata/videostream@processorgrp
       password: 20a362b3-84cf-4222-9d8e-a06a5a5cb518
       attributes:
         pollingIntervalMs: 500
