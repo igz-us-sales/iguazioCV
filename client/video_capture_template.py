@@ -14,20 +14,20 @@ from cv2 import VideoWriter, VideoWriter_fourcc
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-os.environ["V3IO_ACCESS_KEY"] = "20a362b3-84cf-4222-9d8e-a06a5a5cb518"
-os.environ["V3IO_USERNAME"] = "nicks"
+os.environ["V3IO_ACCESS_KEY"] = "XXXXXXXXXXXX"
+os.environ["V3IO_USERNAME"] = "XXXX"
 os.environ[
     "V3IO_WEBAPI"
-] = "https://webapi.default-tenant.app.nicks-dev-cluster.iguazio-cd2.com"
+] = "https://webapi.default-tenant.app.XXXXXXXXXXX.com"
 os.environ[
     "V3IO_FRAMES"
-] = "https://framesd.default-tenant.app.nicks-dev-cluster.iguazio-cd2.com"
+] = "https://framesd.default-tenant.app.XXXXXXXX.com"
 os.environ["IGZ_CONTAINER"] = "bigdata"
 os.environ["RAW_VIDEO_STREAM"] = "videostream"
 os.environ["CAMERA_LIST_TBL"] = "camera_list"
 os.environ["shardId"] = "0"
 os.environ["cameraID"] = "0"
-os.environ["cameraURL"] = "http://192.168.0.103:8080"
+os.environ["cameraURL"] = "http://XXX.XXX.0.XXX:XXXX"
 
 
 url = "%s/%s/%s/" % (
