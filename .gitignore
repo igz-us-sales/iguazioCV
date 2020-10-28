@@ -1,1 +1,3 @@
 .ipynb_checkpoints
+components/orig_notebooks
+project/__pycache__

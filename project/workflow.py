@@ -21,10 +21,12 @@ def kfpipeline():
     # "params" is the input for jobs which output a "run_id"
 
     # Create streams and tables
-    create_streams_tables = funcs['create-streams-tables'].as_step()
+    create_streams_tables = funcs['create-streams-tables'].as_step(outputs=['tagged_video_stream_url', 
+                                                                            'raw_video_stream_url'])
     
     # Deploy facial recognition
-    facial_recognition = funcs['deploy-facial-recognition'].deploy_step(env={'RUN_ORDER' : create_streams_tables.outputs['run_id']})
+    facial_recognition = funcs['deploy-facial-recognition'].deploy_step(env={'RUN_ORDER' : create_streams_tables.outputs['run_id'],
+                                                                             'TAGGED_VIDEO_STREAM_URL' : create_streams_tables.outputs['tagged_video_stream_url']})
 
     # Deploy image retrieval
     image_retrieval = funcs['deploy-image-retrieval'].deploy_step(env={'RUN_ORDER' : facial_recognition.outputs['endpoint']})

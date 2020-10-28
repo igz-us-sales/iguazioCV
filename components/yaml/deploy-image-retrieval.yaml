@@ -2,7 +2,7 @@ kind: remote
 metadata:
   name: latest-image-retrieve
   tag: ''
-  hash: ed20ec2bcca001eb5c4aa7898cec6226c3b54117
+  hash: 87555b212153e4b4dc2801513c1f1818532a7e4d
   project: default
 spec:
   command: ''
@@ -89,7 +89,7 @@ spec:
     kind: Function
     metadata:
       annotations:
-        nuclio.io/generated_by: function generated from 27-10-2020 by nicks
+        nuclio.io/generated_by: function generated from 28-10-2020 by nicks
       labels: {}
       name: latest-image-retrieve
     spec:
