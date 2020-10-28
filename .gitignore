@@ -1,3 +1,4 @@
 .ipynb_checkpoints
 components/orig_notebooks
 project/__pycache__
+.vscode
