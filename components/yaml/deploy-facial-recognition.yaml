@@ -2,7 +2,7 @@ kind: remote
 metadata:
   name: deploy-facial-recognition
   tag: ''
-  hash: 4e11d25147ef6bcbd0f1637829ab932e475997fb
+  hash: 3862cf8f2b78fec030098b03d3bfcd48db5fe2a3
   project: facial-recognition-demo
 spec:
   command: ''
@@ -43,6 +43,8 @@ spec:
     value: bigdata
   - name: ROTATE_180
     value: 'True'
+  - name: FACIAL_RECOGNITION_FUNCTION
+    value: deploy-facial-recognition
   config:
     spec.triggers.http:
       kind: http
