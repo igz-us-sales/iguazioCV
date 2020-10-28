@@ -23,8 +23,8 @@ os.environ[
     "V3IO_FRAMES"
 ] = "https://framesd.default-tenant.app.nicks-dev-cluster.iguazio-cd2.com"
 os.environ["IGZ_CONTAINER"] = "bigdata"
-os.environ["RAW_VIDEO_STREAM"] = "objectrecognition/videostream"
-os.environ["CAMERA_LIST_TBL"] = "objectrecognition/camera_list"
+os.environ["RAW_VIDEO_STREAM"] = "videostream"
+os.environ["CAMERA_LIST_TBL"] = "camera_list"
 os.environ["shardId"] = "0"
 os.environ["cameraID"] = "0"
 os.environ["cameraURL"] = "http://192.168.0.103:8080"
@@ -54,15 +54,13 @@ def stream_frame_write(cameraID, payload):
 def start_capture(cameraID: str, cameraURL: str, shard: int):
     print("start capture")
 
-    # To capture video from webcam.
+    # To capture video from webcam
     cap = cv2.VideoCapture(cameraURL)
+
     # To use a video file as input
     # cap = cv2.VideoCapture('filename.mp4')
     data_count = 1
     while True:
-
-        # Display
-        # cv2.imshow("img", img)
 
         fourcc = VideoWriter_fourcc(*"MPEG")
         running_size = 0
@@ -85,10 +83,6 @@ def start_capture(cameraID: str, cameraURL: str, shard: int):
                 Records = []
             data_count += 1
 
-        # Stop if escape key is pressed
-        # k = cv2.waitKey(0) & 0xff
-        # if k==27:
-        #    break
     # Release the VideoCapture object
     cap.release()
 
