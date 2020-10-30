@@ -1,6 +1,6 @@
 name: facial-recognition-demo
 functions:
-- url: ../components/yaml/create-streams-tables.yaml
+- url: ../components/yaml/create-streams-tables1.yaml
   name: create-streams-tables
 - url: ../components/yaml/deploy-facial-recognition.yaml
   name: deploy-facial-recognition
