@@ -1,15 +1,20 @@
 name: facial-recognition-demo
 functions:
-- url: ../components/yaml/create-streams-tables1.yaml
+- url: ../components/notebooks/CreateStreamsTables.ipynb
   name: create-streams-tables
-- url: ../components/yaml/deploy-facial-recognition.yaml
+  kind: job
+- url: ../components/notebooks/DeployFacialRecognition.ipynb
   name: deploy-facial-recognition
-- url: ../components/yaml/deploy-image-retrieval.yaml
+  kind: nuclio
+- url: ../components/notebooks/DeployImageRetrieval.ipynb
   name: deploy-image-retrieval
-- url: ../components/yaml/create-api-gateway.yaml
+  kind: nuclio
+- url: ../components/notebooks/CreateAPIGateway.ipynb
   name: create-api-gateway
-- url: ../components/yaml/create-grafana-dashboard.yaml
+  kind: job
+- url: ../components/notebooks/CreateGrafanaDashboard.ipynb
   name: create-grafana-dashboard
+  kind: job
 workflows:
 - name: main
   path: workflow.py
