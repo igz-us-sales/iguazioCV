@@ -1,0 +1,13 @@
+# Camera Stream via VLC
+- Download VLC from [here](https://www.videolan.org/vlc/).
+- Create Stream from Webcam:
+    - Select `Media > Stream`.
+    - Set Capture Device to webcam and select `Stream` to continue.
+    - Press `Next` to continue.
+    - Select `Display locally` and add `HTTP` destination and press `Next` to continue.
+        - HTTP Configuration:
+            - Port: `8080`
+            - Path: `/`
+    - Select `Activate transcoding` and select the Profile `Video - MPEG-2 + MPGA (TS)` and press `Next` to continue.
+    - Press `Stream` to start stream from webcam.
+- By default, your `CAMERA_URL` will be `https://<LOCAL_IP>:8080`. Be sure to use this value when populating `components/util/creds.py` on the Igauzio Platform.
