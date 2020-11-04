@@ -2,13 +2,17 @@
 import os
 from kfp import dsl
 from mlrun import mount_v3io
+import yaml
+
+with open("config.yaml") as f:
+    config = yaml.safe_load(f)
 
 funcs = {}
 
 # Configure function resources and local settings
 def init_functions(functions: dict, project=None, secrets=None):
     
-    image = f"docker-registry.{os.getenv('IGZ_NAMESPACE_DOMAIN')}:80/{os.getenv('DOCKER_IMAGE')}"
+    image = f"docker-registry.{os.getenv('IGZ_NAMESPACE_DOMAIN')}:80/{config['project']['docker_image']}"
     
     for fn in functions.values():
         
@@ -25,22 +29,22 @@ def init_functions(functions: dict, project=None, secrets=None):
             fn.spec.max_replicas = 1
         
         # Apply environment variables
-        fn.set_env('RAW_VIDEO_STREAM', os.getenv("RAW_VIDEO_STREAM"))
-        fn.set_env('TAGGED_VIDEO_STREAM', os.getenv("TAGGED_VIDEO_STREAM"))
-        fn.set_env('IGZ_CONTAINER', os.getenv("IGZ_CONTAINER"))
-        fn.set_env('CAMERA_LIST_TBL', os.getenv("CAMERA_LIST_TBL"))
-        fn.set_env('CAMERA_ID', os.getenv("CAMERA_ID"))
-        fn.set_env('SHARD_ID', os.getenv("SHARD_ID"))
-        fn.set_env('CAMERA_URL', os.getenv("CAMERA_URL"))
         fn.set_env('V3IO_ACCESS_KEY', os.getenv('V3IO_ACCESS_KEY'))
-        fn.set_env('ROTATE_180', os.getenv("ROTATE_180"))
-        fn.set_env('FACIAL_RECOGNITION_FUNCTION', os.getenv("FACIAL_RECOGNITION_FUNCTION"))
-        fn.set_env('GET_IMAGE_FUNCTION', os.getenv("GET_IMAGE_FUNCTION"))
-        fn.set_env('API_GATEWAY', os.getenv("API_GATEWAY"))
-        fn.set_env('PROJECT', os.getenv("PROJECT"))
         fn.set_env('V3IO_USERNAME', os.getenv('V3IO_USERNAME'))
-        fn.set_env('IGZ_AUTH', os.getenv("IGZ_AUTH"))
         fn.set_env('IGZ_NAMESPACE_DOMAIN', os.getenv('IGZ_NAMESPACE_DOMAIN'))
+        fn.set_env('RAW_VIDEO_STREAM', config['stream']['raw_video_stream'])
+        fn.set_env('TAGGED_VIDEO_STREAM', config['stream']['tagged_video_stream'])
+        fn.set_env('IGZ_CONTAINER', config['project']['container'])
+        fn.set_env('CAMERA_LIST_TBL', config['camera']['list_table'])
+        fn.set_env('CAMERA_ID', config['camera']['id'])
+        fn.set_env('SHARD_ID', config['stream']['shard_id'])
+        fn.set_env('CAMERA_URL', config['camera']['url'])
+        fn.set_env('ROTATE_180', config['stream']['rotate_180'])
+        fn.set_env('FACIAL_RECOGNITION_FUNCTION', config['api']['facial_recognition_function'])
+        fn.set_env('GET_IMAGE_FUNCTION', config['api']['get_image_function'])
+        fn.set_env('API_GATEWAY', config['api']['gateway'])
+        fn.set_env('PROJECT', config['project']['name'])
+        fn.set_env('IGZ_AUTH', config['api']['auth'])
         
         # Set default handler
         fn.spec.default_handler = "handler"
@@ -51,7 +55,7 @@ def init_functions(functions: dict, project=None, secrets=None):
     # Apply V3IO trigger
     facial_recognition_trigger_spec={
         'kind': 'v3ioStream',
-        'url' : "http://v3io-webapi:8081/%s/%s@processorgrp"% (os.getenv('IGZ_CONTAINER'), os.getenv('RAW_VIDEO_STREAM')),
+        'url' : f"http://v3io-webapi:8081/{config['project']['container']}/{config['stream']['raw_video_stream']}@processorgrp",
         "password": os.getenv('V3IO_ACCESS_KEY'),  
         'attributes': {"pollingIntervalMs": 500,
             "seekTo": "earliest",

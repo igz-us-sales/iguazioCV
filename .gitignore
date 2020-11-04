@@ -4,3 +4,4 @@ __pycache__
 .vscode
 creds.py
 video_capture.py
+config.yaml
