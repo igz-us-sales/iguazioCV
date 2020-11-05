@@ -6,13 +6,13 @@ stream:
     raw_video_stream: 'videostream'
     tagged_video_stream: 'taggedvideos'
     rotate_180: 'True' # Fix for VLC broadcasting stream rotated 180 degrees
+    shard_id: "0"
 camera:
     list_table: 'camera_list'
-    shard_id: "0"
-    camera_id: "0"
+    id: "0"
     url: "http://192.168.0.103:8080"
 api:
     gateway: 'camera-img'
     facial_recognition_function: 'deploy-facial-recognition'
     get_image_function: 'deploy-image-retrieval'
-    auth: "XXXXXXXXXXXXX"
+    auth: "XXXXXXXXXXX"
