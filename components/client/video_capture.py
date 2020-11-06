@@ -54,7 +54,7 @@ def start_capture():
             ret, img = cap.read()
             ret, buffer = cv2.imencode(".jpg", img)
             data = base64.b64encode(buffer)
-            Records.append({"Data": data.decode("utf-8"), "ShardId": config['stream']['shard_id']})
+            Records.append({"Data": data.decode("utf-8"), "ShardId": int(config['stream']['shard_id'])})
 
             if data_count == 60:
                 try:
@@ -62,7 +62,7 @@ def start_capture():
                     r = stream_frame_write(config['camera']['id'], payload)
                     print(r)
                 except:
-                    print("Failed to write to shard %s" % shard)
+                    print("Failed to write to shard %s" % config['stream']['shard_id'])
                 data_count = 1
                 Records = []
             data_count += 1
@@ -72,7 +72,9 @@ def start_capture():
 
 
 def get_cameras_list():
-    client = v3f.Client(config['v3io']['frames'], container=config['project']['container'])
+    client = v3f.Client(address=config['v3io']['frames'],
+                        container=config['project']['container'],
+                        token=config['v3io']['access_key'])
     df = client.read("kv", config['camera']['list_table'])
     return df
 

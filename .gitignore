@@ -2,3 +2,6 @@
 __pycache__
 .vscode
 config.yaml
+components/client/client_config.yaml
+components/client/requirements.txt
+client.tar.gz
