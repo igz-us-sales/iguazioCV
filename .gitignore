@@ -1,6 +1,7 @@
 .ipynb_checkpoints
-components/orig_notebooks
 __pycache__
 .vscode
-creds.py
-video_capture.py
+config.yaml
+components/client/client_config.yaml
+components/client/requirements.txt
+client.tar.gz

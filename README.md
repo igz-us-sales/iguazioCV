@@ -15,17 +15,17 @@ The demo also includes a client script to write local webcam footage to the raw 
 
 ### Server Side (Iguazio Platform)
 1. Open Jupyter service, clone GitHub repo, and open directory.
-3. Duplicate `components/util/creds_template.py` as `components/util/creds.py` and populate with:
-    - Iguazio Platform Password as `IGZ_AUTH` (required for `create-api-gateway`).
-    - URL for Camera as `CAMERA_URL`. This step is required to prevent uploading credentials to source control.
-    - *Note that `CAMERA_URL` will be a local IP address to the client as the client will be pushing to the raw V3IO video stream. This will be setup on the Client Side.*
+3. Duplicate `config_template.yaml` as `config.yaml` and populate with:
+    - Iguazio Platform Password as `auth` (required for `create-api-gateway`).
+    - URL for Camera as `url`. This step is required to prevent uploading credentials to source control.
+    - *Note that `url` will be a local IP address to the client as the client will be pushing to the raw V3IO video stream. This will be setup on the Client Side.*
 3. Deploy Grafana service in the `Services` tab on the left-hand side of the Platform Dashboard.
-4. Run `components/client/BuildVideoCaptureScript.ipynb`. This will create a client script `video_capture.py` with the required environment variables.
-5. Setup Client Side Camera Stream (see below)
-6. Run `FacialRecognitionDemo.ipynb` notebook to launch Kubeflow Pipeline.
-8. Open Grafana service and find `Facial Recognition Demo Streams` dashboard and view outputs of both streams.
+4. [Setup Camera Stream](docs/CameraStreamViaVLC.md) from Webcam.
+5. Run `FacialRecognitionDemo.ipynb` notebook to launch Kubeflow Pipeline.
+6. Deploy Client Side Camera Stream (see below)
+7. Open Grafana service and find `Facial Recognition Demo Streams` dashboard and view outputs of both streams.
 
 ### Client Side (Local Machine)
-1. [Setup Camera Stream](docs/CameraStreamViaVLC.md) from Webcam.
-2. Download previously created `components/client/video_capture.py` from Iguazio Platform onto local machine.
+1. Download `client.tar.gz` from Iguazio Platform onto local machine (created by running `FacialRecognitionDemo.ipynb`).
+2. Unzip `client.tar.gz` and install dependencies from `requirements.txt`.
 3. Run `video_capture.py` on local machine to write webcam footage to V3IO raw video stream.
