@@ -1,0 +1,7 @@
+pandas
+requests
+opencv-python==4.2.0.34
+numpy
+v3io
+v3io_frames
+pyyaml
