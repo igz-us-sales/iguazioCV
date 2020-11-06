@@ -10,7 +10,7 @@ stream:
 camera:
     list_table: 'camera_list'
     id: "0"
-    url: "http://192.168.0.103:8080"
+    url: "http://XXX.XXX.X.XXX:XXXX"
 api:
     gateway: 'camera-img'
     facial_recognition_function: 'deploy-facial-recognition'

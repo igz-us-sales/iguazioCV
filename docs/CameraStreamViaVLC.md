@@ -10,4 +10,4 @@
             - Path: `/`
     - Select `Activate transcoding` and select the Profile `Video - MPEG-2 + MPGA (TS)` and press `Next` to continue.
     - Press `Stream` to start stream from webcam.
-- By default, your `CAMERA_URL` will be `https://<LOCAL_IP>:8080`. Be sure to use this value when populating `components/util/creds.py` on the Igauzio Platform.
+- By default, your `url` will be `https://<LOCAL_IP>:8080`. Be sure to use this value when populating `config.yaml` on the Igauzio Platform.
